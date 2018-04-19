@@ -1,0 +1,54 @@
+
+# 工作台       ->  workbench
+
+# 后台账户     ->  backstageAccount
+
+	> 账号管理  -> Account - account文件夹
+		- 添加账号 -> AddAccount
+		- 交割库配置 -> DeliveryChoice 
+		- 处理编辑 -> EditAccount  
+		- 查看 -> CheckAccount  
+    > 角色管理 role
+        - 添加角色 addRole
+        - 设置权限 RoleAuthority
+        - 查看 RoleAuthoritySee
+	> 企业管理 Business management - BusinessManage
+		- 用户企业管理 User enterprise - UserEnterprise
+
+
+# 前台账户     ->  frontAccounts
+
+	> 注册用户管理    ->   users
+
+	
+
+# 商品发布     ->  goods
+
+	
+# 采购端管理   ->  procurement
+
+
+# 款项管理     ->  payment
+
+
+# 发票管理     ->  invoices
+
+
+# 统计         ->  statistics
+
+
+# 基础设置     ->  basicSetting
+
+
+
+# 左侧导航树  navbars
+
+
+# 登录页面  
+	- Login.vue
+
+# 首页默认 
+	- Home.vue
+
+
+**** 路由变量名 *****

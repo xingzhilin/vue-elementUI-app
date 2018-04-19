@@ -1,0 +1,129 @@
+<template>
+	<div class="addChoice">		
+		<el-form :model="addAccountForm" :rules="addAccountForm" ref="addAccountForm" label-width="100px" class="demo-ruleForm" >		  		  
+		  <el-form-item label="所属角色" prop="role" v-model="addAccountForm.role">
+		    <el-tree
+			  :props="props"
+			  :load="loadNode"
+			  lazy
+			  show-checkbox
+			  @check-change="handleCheckChange">
+			</el-tree>
+		  </el-form-item>
+		  
+		  <el-form-item>
+		    <el-button type="primary" @click="handleSubmitForm('addAccountForm')" size="small">确定</el-button>
+		    <el-button @click="handleResetFrom('addAccountForm')" size="small">取消</el-button>
+		  </el-form-item>
+		</el-form>
+	</div>
+</template>
+<script>
+	export default{
+		name: 'AddAccount',
+		data(){
+			return {
+				msg: 'AddChoice',
+				addAccountForm: {
+					avatar: '',
+					trueUserName: '',
+					phone: '',
+					telephone: '',
+					fax: '',
+					email:'',
+					userStatus: '',
+					depart: '',
+					role: ''
+				},
+				props: {
+					label: 'name',
+					children: 'zones'
+		        },
+		        count: 1,
+		        choiceData: []
+			}
+		},
+		methods:{
+			handleCheckChange(data, checked, indeterminate) {				
+				console.log(data, checked, indeterminate);
+				this.choiceData.push(data.name);
+				this.$store.commit('setAddAccountChoice',this.choiceData)
+			},
+			handleNodeClick(data) {
+				console.log(data);
+			},
+			handleSubmitForm(formName) {
+		        this.$refs[formName].validate((valid) => {
+		          if (valid) {
+		            alert('submit!');
+		          } else {
+		            console.log('error submit!!');
+		            return false;
+		          }
+		        })
+		        this.$emit('departData', this.choiceData);
+		    },
+		    handleResetFrom(fromName){
+		    	this.$refs[fromName].resetFields();
+		    },
+		    handleChoose(){
+                 //记录索引
+                 //this.handleChoose=_index;
+                 //记录数据
+                 //this.editObj=row;
+                 //显示弹窗
+                 this.dialogFormVisible = true;
+             },
+			loadNode(node, resolve) {
+				if (node.level === 0) {
+					return resolve([{ name: 'region1' }, { name: 'region2' }]);
+				}
+				if (node.level > 3) return resolve([]);
+
+				var hasChild;
+				if (node.data.name === 'region1') {
+					hasChild = true;
+				} else if (node.data.name === 'region2') {
+					hasChild = false;
+				} else {
+					hasChild = Math.random() > 0.5;
+				}
+
+				setTimeout(() => {
+					var data;
+					if (hasChild) {
+						data = [
+							{
+								name: 'zone' + this.count++
+							}, {
+								name: 'zone' + this.count++
+							}
+						];
+					} else {
+						data = [];
+					}
+
+					resolve(data);
+				}, 500);
+			}
+		}
+	}
+</script>
+<style lang="scss" scoped>
+	.el-breadcrumb{
+		position: relative;
+	    border-bottom: 1px solid #e5e5e5;
+	    background-color: #f5f5f5;
+	    min-height: 41px;
+	    line-height: 40px;
+	    padding-left: 20px;
+	    display: block;
+	}
+	.el-form{
+		padding: 15px 0 0 15px;
+		color:#606266;
+	}	
+	.el-form-item{
+		margin-bottom:10px;
+	}
+</style>

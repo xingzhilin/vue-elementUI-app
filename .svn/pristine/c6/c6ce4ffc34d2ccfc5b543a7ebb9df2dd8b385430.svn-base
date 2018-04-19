@@ -1,0 +1,61 @@
+<template>
+	<div>
+		<div class="block">
+  <span class="demonstration">默认不区分颜色</span>
+  <el-rate v-model="value1"></el-rate>
+</div>
+<div class="block">
+  <span class="demonstration">区分颜色</span>
+  <el-rate
+    v-model="value2"
+    :colors="['#99A9BF', '#F7BA2A', '#FF9900']">
+  </el-rate>
+</div>
+
+
+	</div>
+</template>
+<script>
+	export default {
+    data() {
+      return {
+        value1: null,
+        value2: null
+      }
+    }
+  }
+</script>
+
+<style scoped>
+  .el-row {
+    margin-bottom: 80px;
+    padding:0px;
+    &:last-child {
+      margin-bottom: 0;
+
+    }
+  }
+  .el-col {
+    border-radius: 4px;
+  }
+  .bg-purple-dark {
+    background: #99a9bf;
+  }
+  .bg-purple {
+    background: #d3dce6;
+  }
+  .bg-purple-light {
+    background: #e5e9f2;
+  }
+  .grid-content {
+    border-radius: 4px;
+    min-height: 36px;
+  }
+  .row-bg {
+    padding: 10px 0;
+    background-color: #f9fafc;
+  }
+  .el-rate__icon{
+  font-size:100px;
+  }
+</style>

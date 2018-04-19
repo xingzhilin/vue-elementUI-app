@@ -1,0 +1,50 @@
+<template>
+	<div class="navbarItem">		
+		<el-menu default-active="" v-for="menu in navMenus" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse" :key="menu.id">
+			<el-menu-item index="menu.id" v-if="menu.type === 'link'" :key="menu.id">
+			    <router-link class="link" :to="menu.url">
+			    	<i class="el-icon-document"></i>
+			    	{{menu.name}}
+			    </router-link>
+			</el-menu-item>
+		  <el-submenu index="menu.id" :key="menu.id" v-if="menu.type === 'button'" >
+		    <template slot="title">
+		      <i class="el-icon-location"></i>
+		      <span slot="title">{{menu.name}}</span>
+		    </template>
+			<NavbarItemView :navMenus="menu.subMenu"></NavbarItemView>  		    
+		  </el-submenu>
+		</el-menu>
+
+		<el-radio-group style="margin-bottom: 20px;" @change="handleChange">
+	        <el-radio-button :label="false">展开</el-radio-button>
+	    </el-radio-group>
+	</div>
+</template>
+<script>
+	
+	export default {
+		name: 'NavbarItemView', 
+  		props: ['navMenus','collapse'], 
+		data(){
+			return {
+				msg: 'NavbarItemView',
+				isCollapse: false,
+			}
+		},
+	    methods: {
+			handleOpen(key, keyPath) {
+				console.log(key, keyPath);
+			},
+			handleClose(key, keyPath) {
+				console.log(key, keyPath);
+			},
+			handleChange(){
+				this.isCollapse = !this.isCollapse;
+			}
+	    }
+	}
+</script>
+<style>
+	
+</style>

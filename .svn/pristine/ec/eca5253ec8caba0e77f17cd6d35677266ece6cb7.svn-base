@@ -1,0 +1,194 @@
+<template>
+    <div>
+      <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
+        <el-radio-button :label="false">展开</el-radio-button>
+        <el-radio-button :label="true">收起</el-radio-button>
+      </el-radio-group>
+       <el-menu  
+         mode="vertical"
+         default-active="0"  
+         class="el-menu-vertical-demo"  
+         text-color="#3C3F41"  
+         active-text-color="black" 
+         router
+         :collapse="isCollapse"
+         >  
+         <NavMenu :navMenus="leftMenus.childs" :collapse="isCollapse"></NavMenu>  
+       </el-menu>
+
+
+
+
+
+          
+    </div>
+</template>
+
+<script>
+  import NavMenu from './navMenu.vue'
+  export default {
+    data() {
+      return {
+        isCollapse:false,
+        leftMenus: {  
+            "entity": null,  
+            "childs": [  
+                {  
+                    "entity": {  
+                        "id": 1,  
+                        "parentMenuId": 0,  
+                        "name": "systemManage",  
+                        "icon": "el-icon-message\r\n",  
+                        "alias": "系统管理",  
+                        "type": "NONE",  
+                        "createUserId": 1  
+                    },  
+                    "childs": [  
+                        {  
+                            "entity": {  
+                                "id": 3,  
+                                "parentMenuId": 1,  
+                                "name": "authManage",  
+                                "icon": "el-icon-loading",  
+                                "alias": "权限管理",  
+                                "type": "LINK",  
+                                "createUserId": 1  
+                            },  
+                            "childs": null  
+                        },  
+                        {  
+                            "entity": {  
+                                "id": 4,  
+                                "parentMenuId": 1,  
+                                "name": "roleManage",  
+                                "icon": "el-icon-bell",  
+                                "alias": "角色管理",  
+                                "type": "LINK",  
+                                "createUserId": 1  
+                            },  
+                            "childs": null  
+                        },  
+                        {  
+                            "entity": {  
+                                "id": 2,  
+                                "parentMenuId": 1,  
+                                "name": "menuManage",  
+                                "icon": "el-icon-edit",  
+                                "alias": "菜单管理",  
+                                "type": "LINK",  
+                                "createUserId": 1  
+                            },  
+                            "childs": null  
+                        },  
+                        {  
+                            "entity": {  
+                                "id": 5,  
+                                "parentMenuId": 1,  
+                                "name": "groupManage",  
+                                "icon": "el-icon-mobile-phone\r\n",  
+                                "alias": "分组管理",  
+                                "type": "LINK",  
+                                "createUserId": 1  
+                            },  
+                            "childs": null  
+                        }  
+                    ]  
+                },  
+                {  
+                    "entity": {  
+                        "id": 6,  
+                        "parentMenuId": 0,  
+                        "name": "userManage",  
+                        "icon": "el-icon-news",  
+                        "alias": "用户管理",  
+                        "type": "NONE",  
+                        "createUserId": 1  
+                    },  
+                    "childs": [  
+                        {  
+                            "entity": {  
+                                "id": 7,  
+                                "parentMenuId": 6,  
+                                "name": "accountManage",  
+                                "icon": "el-icon-phone-outline\r\n",  
+                                "alias": "帐号管理",  
+                                "type": "NONE",  
+                                "createUserId": 1  
+                            },  
+                            "childs": [  
+                                {  
+                                    "entity": {  
+                                        "id": 14,  
+                                        "parentMenuId": 7,  
+                                        "name": "emailManage",  
+                                        "icon": "el-icon-sold-out\r\n",  
+                                        "alias": "邮箱管理",  
+                                        "type": "LINK",  
+                                        "createUserId": 1  
+                                    },  
+                                    "childs": null  
+                                },  
+                                {  
+                                    "entity": {  
+                                        "id": 13,  
+                                        "parentMenuId": 7,  
+                                        "name": "passManage",  
+                                        "icon": "el-icon-service\r\n",  
+                                        "alias": "密码管理",  
+                                        "type": "LINK",  
+                                        "createUserId": 1  
+                                    },  
+                                    "childs": null  
+                                }  
+                            ]  
+                        },  
+                        {  
+                            "entity": {  
+                                "id": 8,  
+                                "parentMenuId": 6,  
+                                "name": "integralManage",  
+                                "icon": "el-icon-picture",  
+                                "alias": "积分管理",  
+                                "type": "LINK",  
+                                "createUserId": 1  
+                            },  
+                            "childs": null  
+                        }  
+                    ]  
+                },  
+                {  
+                    "entity": {  
+                        "id": 9,  
+                        "parentMenuId": 0,  
+                        "name": "contentManage",  
+                        "icon": "el-icon-rank",  
+                        "alias": "内容管理",  
+                        "type": "NONE",  
+                        "createUserId": 1  
+                    },  
+                    "childs": null  
+                }  
+            ]  
+        } 
+      };
+    },
+    methods: {
+      // handleOpen(key, keyPath) {
+      //   console.log(key, keyPath);
+      // },
+      // handleClose(key, keyPath) {
+      //   console.log(key, keyPath);
+      // }
+    },
+    components:{NavMenu}
+  }
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
+    min-height: 400px;
+  }
+
+</style>

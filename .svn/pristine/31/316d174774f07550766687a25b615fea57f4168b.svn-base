@@ -1,0 +1,70 @@
+<template>
+    <div class="addRole">
+        <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+          <el-form-item label="角色名称：" prop="name">
+            <el-col :lg="8" :xs="20" :md="8" :sm="10"><el-input size="small" v-model="ruleForm.name"></el-input></el-col>
+          </el-form-item>
+           <el-form-item label="添加时间：" prop="time">
+            {{ruleForm.currentTime}}
+          </el-form-item>
+          <el-form-item label="角色状态：" prop="status">
+            <el-radio-group v-model="ruleForm.status">
+              <el-radio label="qy">启用</el-radio>
+              <el-radio label="ty">停用</el-radio>
+            </el-radio-group>
+          </el-form-item>
+          <el-form-item label="备注：" prop="desc">
+            <el-col :lg="8" :xs="20" :md="8" :sm="10">
+                <el-input type="textarea" v-model="ruleForm.desc"></el-input>
+            </el-col>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary" @click="submitForm('ruleForm')">下一步</el-button>
+            <el-button @click="resetForm('ruleForm')">重置</el-button>
+          </el-form-item>
+        </el-form>
+    </div>
+</template>
+<script>
+  export default {
+    data() {
+      return {
+        ruleForm: {
+          name: '',
+          status: 'qy',
+          desc: '',
+          currentTime:'2011-1-1'
+        },
+        rules: {
+          name: [
+            { required: true, message: '请输入角色名称', trigger: 'blur' },
+            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+          ],
+          desc: [
+            { min: 0, max: 200, message: '长度在 0 到 200 个字符', trigger: 'blur' }
+          ]
+        }
+      };
+    },
+    methods: {
+      submitForm(formName) {
+        this.$refs[formName].validate((valid) => {
+          if (valid) {
+            this.$router.push({path:'/backstage/RoleAuthority'})
+          } else {
+            console.log('error submit!!');
+            return false;
+          }
+        });
+      },
+      resetForm(formName) {
+        this.$refs[formName].resetFields();
+      }
+    }
+  }
+</script>
+<style scoped>
+    .addRole {
+        padding: 50px 30px;
+    }
+</style>

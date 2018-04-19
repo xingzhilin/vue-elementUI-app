@@ -1,0 +1,51 @@
+<template>
+    <div class="roleAuthority">
+         <el-col>
+            <el-button type="primary">业务权限设置</el-button>
+            <el-button>消息推送设置</el-button>
+         </el-col>
+         <el-col>
+            <el-tree
+              :props="props"
+              :data="treeData"
+              show-checkbox
+              @check-change="handleCheckChange">
+            </el-tree>
+         </el-col>
+    </div>
+</template>
+<script>
+     import {roleTree} from '../../api/api.js'
+     export default {
+        data() {
+          return {
+            props: {
+              label: 'name',
+              children: 'subMenu'
+            },
+            treeData:[],
+            count: 1
+          };
+        },
+        created(){
+           roleTree({}, res => {
+            console.log(res.data)
+                this.treeData = res.data;
+           })
+            
+        },
+        methods: {
+          handleCheckChange(data, checked, indeterminate) {
+            console.log(data, checked, indeterminate);
+          }
+        },
+      };
+</script>
+<style scoped>
+    .roleAuthority {
+        padding: 30px;
+    }
+    .el-tree {
+        margin-top: 20px;
+    }
+</style>

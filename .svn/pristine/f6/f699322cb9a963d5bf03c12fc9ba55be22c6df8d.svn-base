@@ -1,0 +1,30 @@
+
+# 后台账户  backstageAccount
+	> 账号管理  -> Account 
+		- 添加账号 -> AddAccount
+		- 选择部门 -> AddChoice
+    > 角色管理 role
+    > 添加角色 addRole
+    > 设置权限（角色权限） RoleAuthority
+	> 企业管理 Business management - BusinessManage
+		- 用户企业管理 User enterprise - UserEnterprise
+
+
+# 前台账户  prosceniumAccount
+	> 
+
+	
+
+# 商品发布  goodsReleas
+	
+# 入库管理  warehousing
+
+# 统计      statistics
+
+# 基础设置  basicSetting
+
+# 左侧导航树 navbars
+
+
+**** 路由变量名 *****
+backstageAccount prosceniumAccount goodsReleas warehousing statistics basicSetting

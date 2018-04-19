@@ -1,0 +1,90 @@
+<template>
+    <div class="roleAuthority">
+        <el-tabs>
+          <el-tab-pane>
+            <span slot="label">
+                <el-button type="primary" plain autofocus>业务权限设置</el-button>
+            </span>
+            <el-col>
+              <el-tree
+                :props="props"
+                :data="treeData"
+                show-checkbox
+                node-key="id"
+                :default-expanded-keys="expanded"
+                @check-change="handleCheckChange">
+              </el-tree>
+            </el-col>
+          </el-tab-pane>
+          <el-tab-pane label="消息中心">
+              <span slot="label">
+                <el-button type="primary" plain>消息推送设置</el-button>
+              </span>
+              <el-col>
+                <el-tree
+                  :props="props"
+                  :data="treeData"
+                  show-checkbox
+                  node-key="id"
+                  :default-expanded-keys="expanded"
+                  @check-change="handleCheckChange">
+                </el-tree>
+              </el-col>
+          </el-tab-pane>
+         </el-tabs>
+         <el-col>
+            <el-button type="primary">保存</el-button>
+            <router-link :to="{path:'/backstage/role'}">
+                <el-button>取消</el-button>
+            </router-link>
+         </el-col>
+    </div>
+</template>
+<script>
+    import {roleTree} from '../../api/api.js'
+    export default {
+        data() {
+          return {
+            props: {
+              label: 'name',
+              children: 'subMenu'
+            },
+            treeData:[],
+            expanded: []
+          };
+        },
+        created(){
+           roleTree({}, res => {
+                this.treeData = res.data;
+                this.expanded = this.getExpanded(res.data,[]);  // 默认展开tree
+           })
+            
+        },
+        methods: {
+          handleCheckChange(data, checked, indeterminate) {
+            console.log(data, checked, indeterminate);
+          },
+          getExpanded(data,arr){
+            data.forEach((v,i) => {
+                if(v.subMenu){
+                    this.getExpanded(v.subMenu,arr);
+                }else {
+                    arr.push(v.id)
+                }
+            });
+            return arr;
+          }
+        }
+      };
+</script>
+<style scoped>
+    .roleAuthority {
+        padding: 30px;
+    }
+    .el-tree {
+        margin: 20px 0 50px 0;
+    }
+    .el-tabs .el-tabs__nav-wrap::after {
+        display: none;
+    }
+</style>

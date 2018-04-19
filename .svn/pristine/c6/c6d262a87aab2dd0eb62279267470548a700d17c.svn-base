@@ -1,0 +1,137 @@
+import Vue from 'vue'
+import Router from 'vue-router'
+import Home from './../components/Home'
+import Login from './../components/Login'
+import Test from './../components/Test'    //方元测试elementui
+
+
+
+
+
+//后台账户管理
+import backstageAccountIndex from './../components/backstageAccount/Index'
+
+import Account from './../components/backstageAccount/Account'
+import AddAccount from './../components/backstageAccount/AddAccount'
+
+import Role from './../components/backstageAccount/Role'
+import AddRole from './../components/backstageAccount/addRole'
+import RoleAuthority from './../components/backstageAccount/RoleAuthority'
+
+
+/*二级*/
+import BusinessManagement from './../components/backstageAccount/businessManagement/Index'
+
+/*三级*/
+import UserEnterprise from './../components/backstageAccount/businessManagement/userEnterprise/Index'
+
+
+
+
+import ProsceniumAccount from './../components/prosceniumAccount/Index'
+import GoodsReleas from './../components/goodsReleas/Index'
+import Warehousing from './../components/warehousing/Index'
+import Statistics from './../components/statistics/Index'
+import BasicSetting from './../components/basicSetting/Index'
+
+
+     
+
+
+Vue.use(Router)
+
+const backstageAccount = {
+	path: '/backstage/account',
+	name: 'backstageAccount',
+	//redirect: '/backstageAccount/business',
+	component: backstageAccountIndex,
+	children: [
+		{
+			path: '/backstage/business',
+			name: "businessLink",
+			component: BusinessManagement,
+			children: [
+				{
+					path: '/backstage/business/userEnterprise',
+					name: "userEnterpriseLink",
+					component: UserEnterprise
+				}
+			]
+		}, 
+		{
+			path: '/backstage/account',
+			name: 'accountLink',
+			component: Account
+		}, 
+		{
+			path: '/backstage/addAccount',
+			name: 'addAccountLink',
+			component: AddAccount
+		},
+		{
+			path: '/backstage/role',
+			name: "role",
+			component: Role
+		},
+		{
+			path: '/backstage/addRole',
+			name: "addRole",
+			component: AddRole
+		},
+		{
+			path: '/backstage/RoleAuthority',
+			name: "roleAuthority",
+			component: RoleAuthority
+		}
+	]
+}
+
+
+const prosceniumAccount = {
+	path: '/prosceniumAccount',
+	name: 'posceniumAccountLink',
+	component: ProsceniumAccount
+} 
+/*const goodsReleas = {
+
+} 
+const warehousing ={
+
+} 
+const statistics = {
+
+} 
+const basicSetting = {
+
+}*/	
+const test = {
+	path: '/test',
+	name: 'test',
+	component: Test
+}
+
+
+const routes = [
+	{
+		path: '/',
+		name: 'loginLink',
+		component: Login
+    },
+	{
+		path: '/home',
+		name: 'homeLink',
+		component: Home,
+		children: [
+			backstageAccount,
+			prosceniumAccount,
+			test			
+		]
+    },
+    
+]
+
+
+export default new Router({
+  mode: 'history',
+  routes
+})

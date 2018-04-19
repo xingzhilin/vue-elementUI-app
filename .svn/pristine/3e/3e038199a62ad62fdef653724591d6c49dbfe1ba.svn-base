@@ -1,0 +1,86 @@
+import Vue from 'vue'
+import Router from 'vue-router'
+import Home from './../components/Home'
+import Login from './../components/Login'
+import test from './../components/test'    //方元测试elementui
+
+
+
+
+import BackstageAccount from './../components/backstageAccount/Index'
+import AccountManagement from './../components/backstageAccount/AccountManagement'
+
+/*二级*/
+import BusinessManagement from './../components/backstageAccount/businessManagement/Index'
+
+/*三级*/
+import UserEnterprise from './../components/backstageAccount/businessManagement/userEnterprise/Index'
+
+
+
+
+import ProsceniumAccount from './../components/prosceniumAccount/Index'
+import GoodsReleas from './../components/goodsReleas/Index'
+import Warehousing from './../components/warehousing/Index'
+import Statistics from './../components/statistics/Index'
+import BasicSetting from './../components/basicSetting/Index'
+
+
+     
+
+
+Vue.use(Router)
+
+const routes = [
+	{
+      path: '/',
+      name: 'loginLink',
+      component: Login
+    },
+	{
+      path: '/home',
+      name: 'homeLink',
+      component: Home
+    },
+    {
+	  path: '/backstageAccount',
+	  name: 'backstageAccountLink',
+      //redirect: '/backstageAccount/business',
+	  component: BackstageAccount,
+	  children: [
+			{
+				path: '/backstageAccount/business',
+				name: "businessLink",
+				component: BusinessManagement,
+				children: [
+					{
+						path: '/backstageAccount/business/userEnterprise',
+						name: "userEnterpriseLink",
+						component: UserEnterprise
+					}
+				]
+			}, 
+			{
+				path: '/backstageAccount/account',
+				name: "accountLink",
+				component: AccountManagement
+			}
+		]
+	},
+	{
+      path: '/prosceniumAccount',
+      name: 'posceniumAccountLink',
+      component: ProsceniumAccount
+    },
+    {
+      path: '/test',
+      name: 'test',
+      component: test
+    }
+]
+
+
+export default new Router({
+  mode: 'history',
+  routes
+})
