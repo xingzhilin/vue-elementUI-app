@@ -542,11 +542,28 @@ let menus = [
         isSelected: false,
         subMenu: [
             {
-                id: 111,
+                id: 11,
+                level: 1,
+                name: '交割库管理',
+                type: "button",
+                isExpanded: false,
+                isSelected: false,
+                subMenu: [
+                    {
+                        id: 111,
+                        level: 2,
+                        name: '交割库维护',
+                        type: "link",
+                        url: "/platform/warehouse/operate"
+                    }
+                ]
+            },
+            {
+                id: 12,
                 level: 2,
-                name: '采购类统计',
+                name: '交割库管理',
                 type: "link",
-                url: "/basicSetting"
+                url: "/platform/warehouse/operate"
             }
         ]
     },
