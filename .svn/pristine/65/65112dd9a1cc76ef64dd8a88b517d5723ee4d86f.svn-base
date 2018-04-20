@@ -1,6 +1,6 @@
 <template>
-	<div class="backstage">
-		<router-view></router-view>
+	<div class="basicSetting">
+		<router-view></router-view>	
 	</div>
 </template>
 <script>
@@ -8,11 +8,11 @@
 		name: 'Index',
 		data(){
 			return {
-				msg: '业务类型设置'
+				msg: '企业管理-button'
 			}
 		}
 	}
 </script>
-<style>
+<style scoped>
 	
 </style>

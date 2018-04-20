@@ -54,8 +54,6 @@ import RoleAuthority from './../components/backstageAccount/role/RoleAuthority'
 import RoleAuthoritySee from './../components/backstageAccount/role/RoleAuthoritySee'
 
 import WarehousePower from './../components/backstageAccount/warehousePower/Index'
-import WarehousePowerView from './../components/backstageAccount/warehousePower/WarehouseView'
-import WarehousePowerEdit from './../components/backstageAccount/warehousePower/WarehouseEdit'
 
 import BusinessManageIndex from './../components/backstageAccount/Index'
 
@@ -418,16 +416,6 @@ const backstageAccount = {
 			path: '/backstage/warehouse',
 			name: "warehousePowerLink",
 			component: WarehousePower
-		},
-		{
-			path: '/backstage/warehouse/view',
-			name: "warehousePowerViewLink",
-			component: WarehousePowerView
-		},
-		{
-			path: '/backstage/warehouse/edit',
-			name: "warehousePowerEditLink",
-			component: WarehousePowerEdit
 		},
 		{
 			path: '/backstage/business',

@@ -52,7 +52,7 @@
 		  </el-form-item>  
 		  <el-form-item label="负责交割库：" prop="depart" v-model="addAccountForm.depart">
 		  	<span v-for="item in getAddAccountChoice">{{item}}</span>
-		  	<el-checkbox v-model="addAccountForm.checkAll" @change="handleCheckAll">全选</el-checkbox>
+		  	<el-checkbox v-model="addAccountForm.checkAll" @change="handleCheckAll">全部</el-checkbox>
 		    <el-button @click="handleAddChoice" :model="addAccountForm.depart">去配置</el-button>
 		  </el-form-item>		  
 		  <el-form-item label="所属角色：" prop="role" v-model="addAccountForm.role">

@@ -1,22 +1,24 @@
 <template>
-	<div class="account">
+	<div class="backstage">
 		<el-breadcrumb separator-class="el-icon-arrow-right">
 		  <el-breadcrumb-item :to="{ path: '/' }">主页</el-breadcrumb-item>
 		  <el-breadcrumb-item>后台账户管理</el-breadcrumb-item>
 		</el-breadcrumb>
 		<el-form :inline="true" :model="formInline" :rules="rules" ref="formInline" class="demo-form-inline">
-		  <el-form-item label="交割库名称：" prop="name">
-		    <el-input v-model="formInline.name" placeholder="用户名" size="small"></el-input>
-		  </el-form-item>		  		
-		  <el-form-item label="排序：" prop="sort">
-		    <el-select v-model="formInline.sort" placeholder="请选择" size="small">  
-		      <el-option label="请选择" value=""></el-option>
-		      <el-option label="A" value="1"></el-option>
-		      <el-option label="B" value="0"></el-option>
-		    </el-select>
+		  <el-form-item label="用户名" prop="userName">
+		    <el-input v-model="formInline.userName" placeholder="用户名" size="small"></el-input>
 		  </el-form-item>
-		  <el-form-item label="交割库状态：" prop="status">
-		    <el-select v-model="formInline.status" placeholder="请选择" size="small">  
+		  <el-form-item label="真实姓名" prop="trueUserName">
+		    <el-input v-model="formInline.trueUserName" placeholder="真实姓名" size="small"></el-input>
+		  </el-form-item>
+		  <el-form-item label="部门名称" prop="departName">
+		    <el-input v-model="formInline.departName" placeholder="部门名称" size="small"></el-input>
+		  </el-form-item>
+		  <el-form-item label="角色名称" prop="roleName">
+		    <el-input v-model="formInline.roleName" placeholder="角色名称" size="small"></el-input>
+		  </el-form-item>		
+		  <el-form-item label="用户状态" prop="userStatus">
+		    <el-select v-model="formInline.userStatus" placeholder="请选择" size="small">  
 		      <el-option label="请选择" value=""></el-option>
 		      <el-option label="启用" value="1"></el-option>
 		      <el-option label="停用" value="0"></el-option>
@@ -29,19 +31,23 @@
 		</el-form>
 		<div class="el-line"></div>
 		<el-container>
-	      <el-button type="danger" @click="handleControl" size="small">确定选择</el-button>
+	      <el-button type="danger" @click="handleAddAccount" size="small">添加账号</el-button>	        
+	      <span class="total">总计：</span>
 	    </el-container>
-		<el-table
-			ref="multipleTable"
-			:data="tableData"
-			:span-method="rowMethod"
-			tooltip-effect="dark"
-			style="width: 100%"
-			@selection-change="handleSelectionChange">
-			<el-table-column align="center" type="selection" width="30"></el-table-column>
-			<el-table-column align="center" label="选择" width="50"></el-table-column>
-			<el-table-column align="center" prop="name" label="交割库名称"></el-table-column>
-			<el-table-column align="center" prop="status" label="交割库状态" width="120"></el-table-column>
+		<el-table :data="tableData" border size="small">
+		    <el-table-column prop="" label="操作" width="180" align="center">		    	
+		    	<template slot-scope="scope">
+		    		<el-button type="primary" size="mini" @click="handleCheck(scope.$index, scope.row)">查看</el-button>	
+		    		<el-button size="mini" @click="handleEdit(scope.$index, scope.row)">处理</el-button>	
+			      </template>
+		    </el-table-column>
+		    <el-table-column align="center" prop="userName" label="用户名"></el-table-column>
+		    <el-table-column align="center" prop="trueUserName" label="真实姓名"></el-table-column>
+		    <el-table-column align="center" prop="phoneNum" label="手机号"></el-table-column>
+		    <el-table-column align="center" prop="departName" label="所属部门"></el-table-column>
+		    <el-table-column align="center" prop="roleName" label="角色名称"></el-table-column>
+		    <el-table-column align="center" prop="userStatus" label="用户状态"></el-table-column>
+		    <el-table-column align="center" prop="date" label="注册时间"></el-table-column>
 		</el-table>
 		<el-footer style="height:auto">			
 			<el-pagination
@@ -71,20 +77,40 @@
 				},
 				tableData: [
 					{
-			          name: 'Lily',
-			          status: '启用'
+			          userName: 'Lily',
+			          trueUserName: 'Lily Li',
+			          phoneNum:'1283893044',
+			          departName: '运营',
+			          roleName:'测试',
+			          userStatus:'是',
+			          date:'2016-05-02'
 			        },
 			        {
-			          name: '秦皇岛',
-			          status: '停用'
+			          userName: 'Lily',
+			          trueUserName: 'Lily Li',
+			          phoneNum:'1283893044',
+			          departName: '运营',
+			          roleName:'测试',
+			          userStatus:'是',
+			          date:'2016-05-02'
 			        },
 			        {
-			          name: 'ceshi',
-			          status: '启用'
+			          userName: 'Lily',
+			          trueUserName: 'Lily Li',
+			          phoneNum:'1283893044',
+			          departName: '运营',
+			          roleName:'测试',
+			          userStatus:'是',
+			          date:'2016-05-02'
 			        },
 			        {
-			          name: '高碑店',
-			          status: '停用'
+			          userName: 'Lucy',
+			          trueUserName: 'Lily Li',
+			          phoneNum:'244324',
+			          departName: '运营',
+			          roleName:'测试',
+			          userStatus:'是',
+			          date:'2016-05-02'
 			        }
 		        ],
 		        currentPage: 4,
@@ -123,26 +149,23 @@
 				//this.formInline = {}
 				this.$refs[formName].resetFields();
 			},
-			handleSelectionChange(val) {
-				this.multipleSelection = val;
-				console.log(this.multipleSelection);
+			handleAddAccount(){
+				console.log('add');
+				this.$router.push({name: 'addAccountLink'});
 			},
-			rowMethod({ row, column, rowIndex, columnIndex }){
-				if (columnIndex === 0) {
-		            return [1, 2];
-		        } else if (columnIndex === 1) {
-		            return [0, 0];
-		        }
+			handleCheck(index, row){
+				console.log(index, row);
+		        this.$router.push({name: 'checkAccountLink'});
 			},
+			handleEdit(index, row) {
+		        console.log(index, row);
+		        this.$router.push({name: 'editAccountLink'});
+		    },
 			handleSizeChange(val) {
 		        console.log(`每页 ${val} 条`);
 		    },
 		    handleCurrentChange(val) {
 		        console.log(`当前页: ${val}`);
-		    },
-		    handleControl(){
-		    	console.log('确定');
-		    	this.$router.go(-1);
 		    }
 		}
 	}

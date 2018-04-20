@@ -5,46 +5,46 @@
 		  <el-breadcrumb-item>后台账户管理</el-breadcrumb-item>
 		</el-breadcrumb>
 		<el-form :model="addAccountForm" :rules="addAccountForm" ref="addAccountForm" label-width="100px" class="demo-ruleForm" >		  
-		  <el-form-item label="用户头像" prop="avatar">
+		  <el-form-item label="用户头像：" prop="avatar">
 		    <el-input v-model="addAccountForm.avatar" size="samll"></el-input>
 		  </el-form-item>
-		  <el-form-item label="真实姓名" prop="trueUserName" :rules="[{ required: true, message: '真实姓名不能为空'}]">
+		  <el-form-item label="真实姓名：" prop="trueUserName" :rules="[{ required: true, message: '真实姓名不能为空'}]">
 		  	<el-col :xs="24" :sm="24" :md="18" :lg="10" :xl="8">
 		    	<el-input v-model="addAccountForm.trueUserName" size="small"></el-input>
 			</el-col>
 		  </el-form-item>
-		  <el-form-item label="手机号码" prop="phone">
+		  <el-form-item label="手机号码：" prop="phone">
 		  	<el-col :xs="24" :sm="24" :md="18" :lg="10" :xl="8">
 		    	<el-input v-model="addAccountForm.phone" size="small"></el-input>
 		    </el-col>
 		  </el-form-item>
-		  <el-form-item label="固定电话" prop="telephone">
+		  <el-form-item label="固定电话：" prop="telephone">
 		  	<el-col :xs="24" :sm="24" :md="18" :lg="10" :xl="8">
 		    	<el-input v-model="addAccountForm.telephone" size="small"></el-input>
 		    </el-col>
 		  </el-form-item>
-		  <el-form-item label="传真" prop="fax">
+		  <el-form-item label="传真：" prop="fax">
 		  	<el-col :xs="24" :sm="24" :md="18" :lg="10" :xl="8">
 		    	<el-input v-model="addAccountForm.fax" size="small"></el-input>
 		    </el-col>
 		  </el-form-item>
-		  <el-form-item label="电子邮箱" prop="email">
+		  <el-form-item label="电子邮箱：" prop="email">
 		  	<el-col :xs="24" :sm="24" :md="18" :lg="10" :xl="8">
 		    	<el-input v-model="addAccountForm.email" size="small"></el-input>
 		    </el-col>
 		  </el-form-item>
-		  <el-form-item label="账号状态" prop="userStatus">
+		  <el-form-item label="账号状态：" prop="userStatus">
 		    <el-radio-group v-model="addAccountForm.userStatus">
 		      <el-radio label="1">启用</el-radio>
 		      <el-radio label="0">禁用</el-radio>
 		    </el-radio-group>
 		  </el-form-item>  
-		  <el-form-item label="所属部门" prop="depart" v-model="addAccountForm.depart">
+		  <el-form-item label="负责交割库：" prop="depart" v-model="addAccountForm.depart">
 		  	<span v-for="item in getAddAccountChoice">{{item}}</span>
 		  	<span>{{addAccountForm.depart}}</span>
-		    <el-button @click="handleAddChoice" :model="addAccountForm.depart">选择部门</el-button>
+		    <el-button @click="handleAddChoice" :model="addAccountForm.depart">去配置</el-button>
 		  </el-form-item>		  
-		  <el-form-item label="所属角色" prop="role" v-model="addAccountForm.roles">
+		  <el-form-item label="所属角色：" prop="role" v-model="addAccountForm.roles">
 		        <el-col v-for="role in addAccountForm.roles" :key="role.name">
 			   		<el-checkbox v-model="role.checked"></el-checkbox>{{role.name}}
 			    </el-col>

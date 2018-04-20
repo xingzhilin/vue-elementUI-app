@@ -13,31 +13,6 @@ import WorkbenchIndex from './../components/workbench/Index'
 //统计
 import StatisticsIndex from './../components/statistics/Index'
 
-import PurchaseType from './../components/statistics/purchaseType/Index'
-
-import Accounting from './../components/statistics/purchaseType/accounting/Index'
-import GeneralLedger from './../components/statistics/purchaseType/accounting/generalLedger/Index'
-import MarginCallsView from './../components/statistics/purchaseType/accounting/marginCallsView/Index'
-
-import EnterpriseAssets from './../components/statistics/purchaseType/enterpriseAssets/Index'
-
-import OrderAtatistics from './../components/statistics/purchaseType/orderAtatistics/Index'
-import OrderView from './../components/statistics/purchaseType/orderAtatistics/orderView/Index'
-import OrderTypeView from './../components/statistics/purchaseType/orderAtatistics/orderTypeView/Index'
-
-import InvoicesAtatistics from './../components/statistics/purchaseType/invoicesAtatistics/Index'
-import EntryInvoice from './../components/statistics/purchaseType/invoicesAtatistics/entryInvoice/Index'
-import SettleInvoice from './../components/statistics/purchaseType/invoicesAtatistics/settleInvoice/Index'
-
-
-import PartnersAssets from './../components/statistics/partnersAssets/Index'
-
-import Inventory from './../components/statistics/inventory/Index'
-import WarehouseOverview from './../components/statistics/inventory/warehouseOverview/Index'
-import WarehouseQuery from './../components/statistics/inventory/warehouseQuery/Index'
-import RiseAndLoss from './../components/statistics/inventory/riseAndLoss/Index'
-
-
 
 //后台账户管理
 import backstageAccountIndex from './../components/backstageAccount/Index'
@@ -52,39 +27,6 @@ import Role from './../components/backstageAccount/role/Role'
 import AddRole from './../components/backstageAccount/role/addRole'
 import RoleAuthority from './../components/backstageAccount/role/RoleAuthority'
 import RoleAuthoritySee from './../components/backstageAccount/role/RoleAuthoritySee'
-
-import WarehousePower from './../components/backstageAccount/warehousePower/Index'
-import WarehousePowerView from './../components/backstageAccount/warehousePower/WarehouseView'
-import WarehousePowerEdit from './../components/backstageAccount/warehousePower/WarehouseEdit'
-
-import BusinessManageIndex from './../components/backstageAccount/Index'
-
-import BusinessManageUsersIndex from './../components/backstageAccount/businessManage/users/Index'
-
-import BusinessManageUsersList from './../components/backstageAccount/businessManage/users/list/Index'
-import BusinessManageUsersAttri from './../components/backstageAccount/businessManage/users/attri/Index'
-import BusinessManageUsersSign from './../components/backstageAccount/businessManage/users/sign/Index'
-import BusinessManageUsersBank from './../components/backstageAccount/businessManage/users/bank/Index'
-import BusinessManageUsersInvoices from './../components/backstageAccount/businessManage/users/invoices/Index'
-import BusinessManageUsersAdmittance from './../components/backstageAccount/businessManage/users/admittance/Index'
-import BusinessManageUsersInviteBids from './../components/backstageAccount/businessManage/users/inviteBids/Index'
-import BusinessManageUsersIncorrupt from './../components/backstageAccount/businessManage/users/incorrupt/Index'
-
-import BusinessManageTransportIndex from './../components/backstageAccount/businessManage/transport/Index'
-import BusinessManageTransportCompany from './../components/backstageAccount/businessManage/transport/company/Index'
-import BusinessManageTransportBank from './../components/backstageAccount/businessManage/transport/bank/Index'
-
-import BusinessManagePortsIndex from './../components/backstageAccount/businessManage/ports/Index'
-import BusinessManagePortsCompany from './../components/backstageAccount/businessManage/ports/company/Index'
-import BusinessManagePortsBank from './../components/backstageAccount/businessManage/ports/bank/Index'
-
-import BusinessManageLaboratoryIndex from './../components/backstageAccount/businessManage/laboratory/Index'
-import BusinessManageLaboratoryCompany from './../components/backstageAccount/businessManage/laboratory/company/Index'
-import BusinessManageLaboratoryBank from './../components/backstageAccount/businessManage/laboratory/bank/Index'
-
-import BusinessManageOthersIndex from './../components/backstageAccount/businessManage/others/Index'
-import BusinessManageOthersCompany from './../components/backstageAccount/businessManage/others/company/Index'
-import BusinessManageOthersBank from './../components/backstageAccount/businessManage/others/bank/Index'
 
 
 //前台账户管理  frontAccounts
@@ -185,8 +127,6 @@ import PlatformSettingIndex from './../components/basicSetting/platformSetting/I
 
 import BaseInfoSetting from './../components/basicSetting/platformSetting/baseInfoSetting/Index.vue'
 import BusinessType from './../components/basicSetting/platformSetting/baseInfoSetting/businessType/Index.vue'
-import BusinessTypeList from './../components/basicSetting/platformSetting/baseInfoSetting/businessType/businessTypeList/Index.vue'
-import BusinessTypeAdd from './../components/basicSetting/platformSetting/baseInfoSetting/businessType/businessTypeList/Add.vue'
 import Standard from './../components/basicSetting/platformSetting/baseInfoSetting/standard/Index.vue'
 import Delivery from './../components/basicSetting/platformSetting/baseInfoSetting/delivery/Index.vue'
 import Ratio from './../components/basicSetting/platformSetting/baseInfoSetting/ratio/Index.vue'
@@ -267,99 +207,7 @@ const workbench = {
 const statistics = {
 	path: '/statistics',
 	name: 'statisticsLink',
-	component: StatisticsIndex,
-	children: [
-		{
-			path: '/purchaseType',
-			name: 'purchaseTypeLink',
-			component: PurchaseType,
-			children: [
-				{      
-					path: '/purchaseType/accounting',
-					name: 'accountingLink',
-					component: Accounting,
-					children: [
-						{      
-							path: '/accounting/general',
-							name: 'generalLedgerLink',
-							component: GeneralLedger
-						},
-						{
-							path: '/accounting/view',
-							name: 'marginCallsViewLink',
-							component: MarginCallsView
-						}
-					]
-				},
-				{
-					path: '/purchaseType/assets',
-					name: 'enterpriseAssetsLink',
-					component: EnterpriseAssets
-				},
-				{
-					path: '/purchaseType/order',
-					name: 'orderAtatisticsLink',
-					component: OrderAtatistics,
-					children: [
-						{      
-							path: '/purchaseType/order/view',
-							name: 'orderViewLink',
-							component: OrderView
-						},
-						{
-							path: '/purchaseType/order/typeView',
-							name: 'orderTypeViewLink',
-							component: OrderTypeView
-						}
-					]
-				},
-				{
-					path: '/purchaseType/invoices',
-					name: 'invoicesAtatisticsLink',
-					component: InvoicesAtatistics,
-					children: [
-						{      
-							path: '/purchaseType/invoices/entry',
-							name: 'entryInvoiceLink',
-							component: EntryInvoice
-						},
-						{
-							path: '/purchaseType/invoices/settle',
-							name: 'settleInvoiceLink',
-							component: SettleInvoice
-						}
-					]
-				}
-			]
-		},
-		{      
-			path: '/partnersAssets',
-			name: 'partnersAssetsLink',
-			component: PartnersAssets
-		},
-		{
-			path: '/inventory',
-			name: 'inventoryLink',
-			component: Inventory,
-			children: [
-				{      
-					path: '/inventory/ovewview',
-					name: 'warehouseOverviewLink',
-					component: WarehouseOverview
-				},
-				{
-					path: '/inventory/query',
-					name: 'warehouseQueryLink',
-					component: WarehouseQuery
-				},
-				{
-					path: '/inventory/riseAndLoss',
-					name: 'riseAndLossLink',
-					component: RiseAndLoss
-				}
-			]
-		}
-	]
+	component: StatisticsIndex
 } 
 
 //后台账户管理
@@ -413,145 +261,7 @@ const backstageAccount = {
 			path: '/backstage/RoleAuthoritySee',
 			name: "roleAuthoritySee",
 			component: RoleAuthoritySee,
-		},
-		{
-			path: '/backstage/warehouse',
-			name: "warehousePowerLink",
-			component: WarehousePower
-		},
-		{
-			path: '/backstage/warehouse/view',
-			name: "warehousePowerViewLink",
-			component: WarehousePowerView
-		},
-		{
-			path: '/backstage/warehouse/edit',
-			name: "warehousePowerEditLink",
-			component: WarehousePowerEdit
-		},
-		{
-			path: '/backstage/business',
-			name: 'businessLink',
-			component: BusinessManageIndex,
-			children: [
-				{
-					path: '/backstage/business/users',
-					name: 'businessUserLink',
-					component: BusinessManageUsersIndex,
-					children: [
-						{
-							path: '/business/users/list',
-							name: 'userslistLink',
-							component: BusinessManageUsersList,
-						},
-						{
-							path: '/business/users/attri',
-							name: 'usersattriLink',
-							component: BusinessManageUsersAttri,
-						},
-						{
-							path: '/business/users/sign',
-							name: 'userssignLink',
-							component: BusinessManageUsersSign,
-						},
-						{
-							path: '/business/users/bank',
-							name: 'usersbankLink',
-							component: BusinessManageUsersBank,
-						},
-						{
-							path: '/business/users/invoices',
-							name: 'usersinvoicesLink',
-							component: BusinessManageUsersInvoices,
-						},
-						{
-							path: '/business/users/admittance',
-							name: 'usersadmittanceLink',
-							component: BusinessManageUsersAdmittance,
-						},
-						{
-							path: '/business/users/inviteBids',
-							name: 'usersinviteBidsLink',
-							component: BusinessManageUsersInviteBids,
-						},
-						{
-							path: '/business/users/incorrupt',
-							name: 'usersincorruptLink',
-							component: BusinessManageUsersIncorrupt,
-						}
-					]
-				},
-				{
-					path: '/backstage/business/transport',
-					name: 'transportLink',
-					component: BusinessManageTransportIndex,
-					children: [
-						{
-							path: '/business/transport/company',
-							name: 'transportCompanyLink',
-							component: BusinessManageTransportCompany,
-						},
-						{
-							path: '/business/transport/bank',
-							name: 'transportBankLink',
-							component: BusinessManageTransportBank,
-						}
-					]
-				},
-				{
-					path: '/backstage/business/ports',
-					name: 'portsLink',
-					component: BusinessManagePortsIndex,
-					children: [
-						{
-							path: '/business/ports/company',
-							name: 'portsCompanyLink',
-							component: BusinessManagePortsCompany,
-						},
-						{
-							path: '/business/ports/bank',
-							name: 'portsBankLink',
-							component: BusinessManagePortsBank,
-						}
-					]
-				},
-				{
-					path: '/backstage/business/laboratory',
-					name: 'laboratoryLink',
-					component: BusinessManageLaboratoryIndex,
-					children: [
-						{
-							path: '/business/laboratory/company',
-							name: 'laboratoryCompanyLink',
-							component: BusinessManageLaboratoryCompany,
-						},
-						{
-							path: '/business/laboratory/bank',
-							name: 'laboratoryBankLink',
-							component: BusinessManageLaboratoryBank,
-						}
-					]
-				},
-				{
-					path: '/backstage/business/others',
-					name: 'othersLink',
-					component: BusinessManageOthersIndex,
-					children: [
-						{
-							path: '/business/others/company',
-							name: 'othersCompanyLink',
-							component: BusinessManageOthersCompany,
-						},
-						{
-							path: '/business/others/bank',
-							name: 'othersBankLink',
-							component: BusinessManageOthersBank,
-						}
-					]
-				}
-			]
 		}
-
 	]
 }
 //前台账户管理
@@ -917,19 +627,7 @@ const basicSetting = {
 						{      
 							path: '/platform/baseInfo/businessType',
 							name: 'businessTypeLink',
-							component: BusinessType,
-							children:[
-								{
-									path: '/platform/baseInfo/businessType/Index',
-									name: 'BusinessTypeList',
-									component: BusinessTypeList,
-								},
-								{
-									path: '/platform/baseInfo/businessType/Add',
-									name: 'BusinessTypeAdd',
-									component: BusinessTypeAdd,
-								}
-							]
+							component: BusinessType
 						},
 						{
 							path: '/platform/baseInfo/standard',
