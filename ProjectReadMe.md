@@ -70,26 +70,46 @@
 
 			>>> 企业属性管理    ->  attri
 
-			>>> 签章管理
+			>>> 签章管理        ->  sign
 
-			>>> 银行账号管理
+			>>> 银行账号管理    ->  bank
 
-			>>> 发票管理
+			>>> 发票管理        ->  invoices  
 
-			>>> 准入协议管理
+			>>> 准入协议管理    ->   admittance
 
-			>>> 点价设置
+			>>> 点价设置       ->  inviteBids
 
-			>>> 廉政协议签署
+			>>> 廉政协议签署   ->  incorrupt
 
 
-		>> 运输公司管理	 ->  transport
+		>> 运输公司管理	 ->  transport			
+
+			>>> 运输公司管理   -> company
+
+			>>> 银行账号管理   -> bank
+
 
 		>> 港务公司管理   ->  ports
 
+			>>> 港务公司管理   -> company
+
+			>>> 银行账号管理   -> bank
+
+
 		>> 化验公司管理   ->  laboratory
 
+			>>> 化验公司管理  -> company
+
+			>>> 银行账号管理   -> bank
+
+
 		>> 其他公司管理   ->  others
+
+			>>> 其他公司管理  -> company
+
+			>>> 银行账号管理   -> bank
+
 
 
 # 前台账户     ->  frontAccounts

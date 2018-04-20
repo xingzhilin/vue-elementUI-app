@@ -59,12 +59,30 @@ import BusinessManageIndex from './../components/backstageAccount/Index'
 
 import BusinessManageUsersIndex from './../components/backstageAccount/businessManage/users/Index'
 
-
 import BusinessManageUsersList from './../components/backstageAccount/businessManage/users/list/Index'
 import BusinessManageUsersAttri from './../components/backstageAccount/businessManage/users/attri/Index'
+import BusinessManageUsersSign from './../components/backstageAccount/businessManage/users/sign/Index'
+import BusinessManageUsersBank from './../components/backstageAccount/businessManage/users/bank/Index'
+import BusinessManageUsersInvoices from './../components/backstageAccount/businessManage/users/invoices/Index'
+import BusinessManageUsersAdmittance from './../components/backstageAccount/businessManage/users/admittance/Index'
+import BusinessManageUsersInviteBids from './../components/backstageAccount/businessManage/users/inviteBids/Index'
+import BusinessManageUsersIncorrupt from './../components/backstageAccount/businessManage/users/incorrupt/Index'
 
+import BusinessManageTransportIndex from './../components/backstageAccount/businessManage/transport/Index'
+import BusinessManageTransportCompany from './../components/backstageAccount/businessManage/transport/company/Index'
+import BusinessManageTransportBank from './../components/backstageAccount/businessManage/transport/bank/Index'
 
+import BusinessManagePortsIndex from './../components/backstageAccount/businessManage/ports/Index'
+import BusinessManagePortsCompany from './../components/backstageAccount/businessManage/ports/company/Index'
+import BusinessManagePortsBank from './../components/backstageAccount/businessManage/ports/bank/Index'
 
+import BusinessManageLaboratoryIndex from './../components/backstageAccount/businessManage/laboratory/Index'
+import BusinessManageLaboratoryCompany from './../components/backstageAccount/businessManage/laboratory/company/Index'
+import BusinessManageLaboratoryBank from './../components/backstageAccount/businessManage/laboratory/bank/Index'
+
+import BusinessManageOthersIndex from './../components/backstageAccount/businessManage/others/Index'
+import BusinessManageOthersCompany from './../components/backstageAccount/businessManage/others/company/Index'
+import BusinessManageOthersBank from './../components/backstageAccount/businessManage/others/bank/Index'
 
 
 //前台账户管理  frontAccounts
@@ -408,13 +426,111 @@ const backstageAccount = {
 					children: [
 						{
 							path: '/business/users/list',
-							name: 'userlistLink',
+							name: 'userslistLink',
 							component: BusinessManageUsersList,
 						},
 						{
 							path: '/business/users/attri',
-							name: 'userattriLink',
+							name: 'usersattriLink',
 							component: BusinessManageUsersAttri,
+						},
+						{
+							path: '/business/users/sign',
+							name: 'userssignLink',
+							component: BusinessManageUsersSign,
+						},
+						{
+							path: '/business/users/bank',
+							name: 'usersbankLink',
+							component: BusinessManageUsersBank,
+						},
+						{
+							path: '/business/users/invoices',
+							name: 'usersinvoicesLink',
+							component: BusinessManageUsersInvoices,
+						},
+						{
+							path: '/business/users/admittance',
+							name: 'usersadmittanceLink',
+							component: BusinessManageUsersAdmittance,
+						},
+						{
+							path: '/business/users/inviteBids',
+							name: 'usersinviteBidsLink',
+							component: BusinessManageUsersInviteBids,
+						},
+						{
+							path: '/business/users/incorrupt',
+							name: 'usersincorruptLink',
+							component: BusinessManageUsersIncorrupt,
+						}
+					]
+				},
+				{
+					path: '/backstage/business/transport',
+					name: 'transportLink',
+					component: BusinessManageTransportIndex,
+					children: [
+						{
+							path: '/business/transport/company',
+							name: 'transportCompanyLink',
+							component: BusinessManageTransportCompany,
+						},
+						{
+							path: '/business/transport/bank',
+							name: 'transportBankLink',
+							component: BusinessManageTransportBank,
+						}
+					]
+				},
+				{
+					path: '/backstage/business/ports',
+					name: 'portsLink',
+					component: BusinessManagePortsIndex,
+					children: [
+						{
+							path: '/business/ports/company',
+							name: 'portsCompanyLink',
+							component: BusinessManagePortsCompany,
+						},
+						{
+							path: '/business/ports/bank',
+							name: 'portsBankLink',
+							component: BusinessManagePortsBank,
+						}
+					]
+				},
+				{
+					path: '/backstage/business/laboratory',
+					name: 'laboratoryLink',
+					component: BusinessManageLaboratoryIndex,
+					children: [
+						{
+							path: '/business/laboratory/company',
+							name: 'laboratoryCompanyLink',
+							component: BusinessManageLaboratoryCompany,
+						},
+						{
+							path: '/business/laboratory/bank',
+							name: 'laboratoryBankLink',
+							component: BusinessManageLaboratoryBank,
+						}
+					]
+				},
+				{
+					path: '/backstage/business/others',
+					name: 'othersLink',
+					component: BusinessManageOthersIndex,
+					children: [
+						{
+							path: '/business/others/company',
+							name: 'othersCompanyLink',
+							component: BusinessManageOthersCompany,
+						},
+						{
+							path: '/business/others/bank',
+							name: 'othersBankLink',
+							component: BusinessManageOthersBank,
 						}
 					]
 				}
