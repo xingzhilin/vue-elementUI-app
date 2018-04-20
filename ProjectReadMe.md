@@ -1,19 +1,95 @@
 
 # 工作台       ->  workbench
 
+
+
+
+# 统计         ->  statistics
+
+	> 采购类    ->   purchaseType
+
+		>> 账务统计		 ->  accounting
+
+			>>> 企业总账    ->   generalLedger
+
+			>>> 企业收到保证金总账   ->   marginCallsView
+
+
+		>> 客户企业资产管理    ->  enterpriseAssets
+
+		>> 订单统计		->  orderAtatistics
+
+			>>> 企业订单总览     ->   orderView
+
+			>>> 订单分类总览     ->    orderTypeView
+
+
+		>> 发票统计    ->   invoicesAtatistics
+			
+			>>> 进项发票信息查询     ->   entryInvoice
+
+			>>> 结算单对应发票查询   ->   settleInvoice
+
+
+	> 合作方企业资产管理    ->   partnersAssets
+
+
+	> 库存统计		->   inventory
+
+		>> 交割库总览   ->  warehouseOverview
+
+		>> 出入库查询   ->  warehouseQuery
+
+		>> 企业维度涨亏吨查询    ->   riseAndLoss
+
+
+
 # 后台账户     ->  backstageAccount
 
-	> 账号管理  -> Account - account文件夹
+	> 账号管理  ->  account
+
 		- 添加账号 -> AddAccount
 		- 交割库配置 -> DeliveryChoice 
 		- 处理编辑 -> EditAccount  
 		- 查看 -> CheckAccount  
-    > 角色管理 role
+
+	> 交割库权限设置   ->   warehousePower
+
+
+    > 角色管理   ->   role
+
         - 添加角色 addRole
         - 设置权限 RoleAuthority
         - 查看 RoleAuthoritySee
-	> 企业管理 Business management - BusinessManage
-		- 用户企业管理 User enterprise - UserEnterprise
+
+	> 企业管理   ->  businessManage
+
+		>> 用户企业管理  ->  users
+
+			>>> 用户企业管理    -> list
+
+			>>> 企业属性管理    ->  attri
+
+			>>> 签章管理
+
+			>>> 银行账号管理
+
+			>>> 发票管理
+
+			>>> 准入协议管理
+
+			>>> 点价设置
+
+			>>> 廉政协议签署
+
+
+		>> 运输公司管理	 ->  transport
+
+		>> 港务公司管理   ->  ports
+
+		>> 化验公司管理   ->  laboratory
+
+		>> 其他公司管理   ->  others
 
 
 # 前台账户     ->  frontAccounts
@@ -153,9 +229,6 @@
 
 
 
-# 统计         ->  statistics
-
-
 # 基础设置     ->  basicSetting
 
 	> 平台基础设置     ->    platformSetting
@@ -204,7 +277,7 @@
 			>>> 供货招标推荐   ->  supplyBidding
 
 
-		>> 交割库管理      ->  warehouseManage  
+		>> 交割库管理      ->  warehouseManage     
 
 			>>> 交割库维护    -> operate
 

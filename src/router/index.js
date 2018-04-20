@@ -13,6 +13,31 @@ import WorkbenchIndex from './../components/workbench/Index'
 //统计
 import StatisticsIndex from './../components/statistics/Index'
 
+import PurchaseType from './../components/statistics/purchaseType/Index'
+
+import Accounting from './../components/statistics/purchaseType/accounting/Index'
+import GeneralLedger from './../components/statistics/purchaseType/accounting/generalLedger/Index'
+import MarginCallsView from './../components/statistics/purchaseType/accounting/marginCallsView/Index'
+
+import EnterpriseAssets from './../components/statistics/purchaseType/enterpriseAssets/Index'
+
+import OrderAtatistics from './../components/statistics/purchaseType/orderAtatistics/Index'
+import OrderView from './../components/statistics/purchaseType/orderAtatistics/orderView/Index'
+import OrderTypeView from './../components/statistics/purchaseType/orderAtatistics/orderTypeView/Index'
+
+import InvoicesAtatistics from './../components/statistics/purchaseType/invoicesAtatistics/Index'
+import EntryInvoice from './../components/statistics/purchaseType/invoicesAtatistics/entryInvoice/Index'
+import SettleInvoice from './../components/statistics/purchaseType/invoicesAtatistics/settleInvoice/Index'
+
+
+import PartnersAssets from './../components/statistics/partnersAssets/Index'
+
+import Inventory from './../components/statistics/inventory/Index'
+import WarehouseOverview from './../components/statistics/inventory/warehouseOverview/Index'
+import WarehouseQuery from './../components/statistics/inventory/warehouseQuery/Index'
+import RiseAndLoss from './../components/statistics/inventory/riseAndLoss/Index'
+
+
 
 //后台账户管理
 import backstageAccountIndex from './../components/backstageAccount/Index'
@@ -27,6 +52,19 @@ import Role from './../components/backstageAccount/role/Role'
 import AddRole from './../components/backstageAccount/role/addRole'
 import RoleAuthority from './../components/backstageAccount/role/RoleAuthority'
 import RoleAuthoritySee from './../components/backstageAccount/role/RoleAuthoritySee'
+
+import WarehousePower from './../components/backstageAccount/warehousePower/Index'
+
+import BusinessManageIndex from './../components/backstageAccount/Index'
+
+import BusinessManageUsersIndex from './../components/backstageAccount/businessManage/users/Index'
+
+
+import BusinessManageUsersList from './../components/backstageAccount/businessManage/users/list/Index'
+import BusinessManageUsersAttri from './../components/backstageAccount/businessManage/users/attri/Index'
+
+
+
 
 
 //前台账户管理  frontAccounts
@@ -206,7 +244,99 @@ const workbench = {
 const statistics = {
 	path: '/statistics',
 	name: 'statisticsLink',
-	component: StatisticsIndex
+	component: StatisticsIndex,
+	children: [
+		{
+			path: '/purchaseType',
+			name: 'purchaseTypeLink',
+			component: PurchaseType,
+			children: [
+				{      
+					path: '/purchaseType/accounting',
+					name: 'accountingLink',
+					component: Accounting,
+					children: [
+						{      
+							path: '/accounting/general',
+							name: 'generalLedgerLink',
+							component: GeneralLedger
+						},
+						{
+							path: '/accounting/view',
+							name: 'marginCallsViewLink',
+							component: MarginCallsView
+						}
+					]
+				},
+				{
+					path: '/purchaseType/assets',
+					name: 'enterpriseAssetsLink',
+					component: EnterpriseAssets
+				},
+				{
+					path: '/purchaseType/order',
+					name: 'orderAtatisticsLink',
+					component: OrderAtatistics,
+					children: [
+						{      
+							path: '/purchaseType/order/view',
+							name: 'orderViewLink',
+							component: OrderView
+						},
+						{
+							path: '/purchaseType/order/typeView',
+							name: 'orderTypeViewLink',
+							component: OrderTypeView
+						}
+					]
+				},
+				{
+					path: '/purchaseType/invoices',
+					name: 'invoicesAtatisticsLink',
+					component: InvoicesAtatistics,
+					children: [
+						{      
+							path: '/purchaseType/invoices/entry',
+							name: 'entryInvoiceLink',
+							component: EntryInvoice
+						},
+						{
+							path: '/purchaseType/invoices/settle',
+							name: 'settleInvoiceLink',
+							component: SettleInvoice
+						}
+					]
+				}
+			]
+		},
+		{      
+			path: '/partnersAssets',
+			name: 'partnersAssetsLink',
+			component: PartnersAssets
+		},
+		{
+			path: '/inventory',
+			name: 'inventoryLink',
+			component: Inventory,
+			children: [
+				{      
+					path: '/inventory/ovewview',
+					name: 'warehouseOverviewLink',
+					component: WarehouseOverview
+				},
+				{
+					path: '/inventory/query',
+					name: 'warehouseQueryLink',
+					component: WarehouseQuery
+				},
+				{
+					path: '/inventory/riseAndLoss',
+					name: 'riseAndLossLink',
+					component: RiseAndLoss
+				}
+			]
+		}
+	]
 } 
 
 //后台账户管理
@@ -260,7 +390,37 @@ const backstageAccount = {
 			path: '/backstage/RoleAuthoritySee',
 			name: "roleAuthoritySee",
 			component: RoleAuthoritySee,
+		},
+		{
+			path: '/backstage/warehouse',
+			name: "warehousePowerLink",
+			component: WarehousePower
+		},
+		{
+			path: '/backstage/business',
+			name: 'businessLink',
+			component: BusinessManageIndex,
+			children: [
+				{
+					path: '/backstage/business/users',
+					name: 'businessUserLink',
+					component: BusinessManageUsersIndex,
+					children: [
+						{
+							path: '/business/users/list',
+							name: 'userlistLink',
+							component: BusinessManageUsersList,
+						},
+						{
+							path: '/business/users/attri',
+							name: 'userattriLink',
+							component: BusinessManageUsersAttri,
+						}
+					]
+				}
+			]
 		}
+
 	]
 }
 //前台账户管理
