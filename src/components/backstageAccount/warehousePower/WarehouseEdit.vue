@@ -48,14 +48,7 @@
 		},
 		methods:{
 			handleSubmitForm(formName) {
-		        this.$refs[formName].validate((valid) => {
-		          if (valid) {
-		            alert('submit!');
-		          } else {
-		            console.log('error submit!!');
-		            return false;
-		          }
-		        })
+				console.log(this.users);
 		    },
 		    handleGoBack(fromName){
 		    	this.$router.go(-1);
@@ -79,7 +72,7 @@
 	.el-form-item{
 		margin-bottom:10px;
 	}
-	
+
 	.infoShow{
 		padding:0 30px;
 	}
