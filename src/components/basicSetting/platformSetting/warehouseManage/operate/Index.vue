@@ -22,7 +22,7 @@
 		</el-form>
 		<div class="el-line"></div>
 		<el-container>
-	      <el-button type="danger" @click="handleAddAccount" size="small">新增</el-button>	
+	      <el-button type="danger" @click="handleAdd" size="small">新增</el-button>	
 	      <el-button type="danger" @click="handleAddAccount" size="small">云采购交割库排序</el-button>	
 	      <el-button type="danger" @click="handleAddAccount" size="small">云供应交割库排序</el-button>	
 	      <el-button type="danger" @click="handleAddAccount" size="small">锁价交易交割库排序</el-button>	
@@ -149,6 +149,10 @@
 			handleReset(formName){
 				//this.formInline = {}
 				this.$refs[formName].resetFields();
+			},
+			handleAdd(){
+				console.log('add');
+				this.$router.push({name: 'warehouseManageAddLink'});
 			},
 			handleAddAccount(){
 				console.log('add');

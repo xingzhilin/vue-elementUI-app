@@ -52,6 +52,7 @@
 </script>
 
 <style scoped lang="scss">
+
 	$color-primary: #20a0ff;
 	.container {
 		position: absolute;
@@ -59,6 +60,15 @@
 		top: 0px;
 		bottom: 0px;
 		width: 100%;
+		.el-breadcrumb{
+			position: relative;
+		    border-bottom: 1px solid #e5e5e5;
+		    background-color: #f5f5f5;
+		    min-height: 41px;
+		    line-height: 40px;
+		    padding-left: 20px;
+		    display: block;
+		}
 		.header {
 			line-height: 60px;
 			background: $color-primary;
