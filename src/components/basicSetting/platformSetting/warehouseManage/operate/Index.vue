@@ -23,12 +23,12 @@
 		<div class="el-line"></div>
 		<el-container>
 	      <el-button type="danger" @click="handleAdd" size="small">新增</el-button>	
-	      <el-button type="danger" @click="handleAddAccount" size="small">云采购交割库排序</el-button>	
-	      <el-button type="danger" @click="handleAddAccount" size="small">云供应交割库排序</el-button>	
-	      <el-button type="danger" @click="handleAddAccount" size="small">锁价交易交割库排序</el-button>	
-	      <el-button type="danger" @click="handleAddAccount" size="small">锁价交易交割库排序</el-button>	
-	      <el-button type="danger" @click="handleAddAccount" size="small">煤炭商城交割库排序</el-button>	
-	      <el-button type="danger" @click="handleAddAccount" size="small">升贴水交割库维护</el-button>	          
+	      <el-button type="danger" @click="handleSort('1')" size="small">云采购交割库排序</el-button>	
+	      <el-button type="danger" @click="handleSort('2')" size="small">云供应交割库排序</el-button>	
+	      <el-button type="danger" @click="handleSort('3')" size="small">锁价交易交割库排序</el-button>	
+	      <el-button type="danger" @click="handleSort('4')" size="small">锁价交易交割库排序</el-button>	
+	      <el-button type="danger" @click="handleSort('5')" size="small">煤炭商城交割库排序</el-button>	
+	      <el-button type="danger" @click="handlePremium" size="small">升贴水交割库维护</el-button>	          
 	    </el-container>
 		<el-table :data="tableData" border size="small">
 		    <el-table-column prop="" label="操作" width="180" align="center">		    	
@@ -153,6 +153,12 @@
 			handleAdd(){
 				console.log('add');
 				this.$router.push({name: 'warehouseManageAddLink'});
+			},
+			handleSort(id){
+				this.$router.push({name: 'warehouseManageSortingLink', query: {id: id}});
+			},
+			handlePremium(){
+				this.$router.push({name: 'warehouseManagePremiumLink'});
 			},
 			handleAddAccount(){
 				console.log('add');

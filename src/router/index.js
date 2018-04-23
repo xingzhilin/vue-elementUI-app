@@ -211,6 +211,8 @@ import SupplyBidding from './../components/basicSetting/platformSetting/featured
 import WarehouseManage from './../components/basicSetting/platformSetting/warehouseManage/Index'
 import WarehouseManageOperate from './../components/basicSetting/platformSetting/warehouseManage/operate/Index'
 import WarehouseManageAdd from './../components/basicSetting/platformSetting/warehouseManage/operate/Add'
+import WarehouseManageSorting from './../components/basicSetting/platformSetting/warehouseManage/operate/Sorting'
+import WarehouseManagePremium from './../components/basicSetting/platformSetting/warehouseManage/operate/Premium'
 
 import ContractTemplate from './../components/basicSetting/platformSetting/contractTemplate/Index'
 import ContractTemplateOperate from './../components/basicSetting/platformSetting/contractTemplate/operate/Index'
@@ -1043,8 +1045,17 @@ const basicSetting = {
 							path: '/platform/warehouse/add',
 							name: 'warehouseManageAddLink',
 							component: WarehouseManageAdd
-						}
-						
+						},
+						{
+							path: '/platform/warehouse/sort',
+							name: 'warehouseManageSortingLink',
+							component: WarehouseManageSorting
+						},
+						{
+							path: '/platform/warehouse/premium',
+							name: 'warehouseManagePremiumLink',
+							component: WarehouseManagePremium
+						}					
 					]
 				},        
 				{
